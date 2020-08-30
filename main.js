@@ -15,8 +15,14 @@ client.on('message', message =>{
 
     const args = message.content.slice(prefix.length).split(/ +/)
     const command = args.shift().toLowerCase();
-
-    if(command === 'ping'){
+  case 'embed';
+      const embed = new Discord.RichEmbed()
+      .addfield('user', message.author.fetchProfile);
+      message.channel.sendEmbed(embed);
+  break;
+})
+})
+    } else if(command === 'ping'){
         message.channel.send('hello Server!');
     } else if (command == 'help'){
         message.channel.send('i heard someone needs help! the prefix is ^ here is an example command ^prefix');
@@ -28,6 +34,7 @@ client.on('message', message =>{
         message.channel.send('https://th.bing.com/th/id/OIP.FtoAvDX3UDQYemuxkTr67gHaEK?w=295&h=180&c=7&o=5&pid=1.7');
       else if (command == 'carbreak')
         message.channel.send('https://media.tenor.com/images/97d6783304bd95d265f9c44d43a0b3ad/tenor.gif')
+      
 
 })
 
